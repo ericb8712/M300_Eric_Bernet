@@ -42,6 +42,36 @@ Um den Container zu stoppen, "herunterzufahren":
 docker stop idvomContainer
 
 
+docker run -d --name eric-mysql-container -e TZ=UTC -v modul300:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysql ubuntu/mysql:8.0-22.04_beta
+
+-v beschreibt wo das volume speichern sollte. in diesem Beispiel heisst das Volume modul300 (ist auf der vm gespeichert)und wird dann im /var/lib/mysql im container abgelegt, sodass es die daten nicht verliert wenn man den container löscht.  
+
+
+image ab einem laufenden container bilden:
+
+docker run -it --name variante1 --hostname variante1 ubuntu bash
+docker exec -it variante1 bash
+
+laufender conainter(variante1 in diesem fall) zu einem Image machen:
+docker commit variante1 img/variante1
+
+
+Docker file erstellen:
+docker build -t df/variante2 .
+
+container mit docker file starten:
+docker run --rm -d --name variante2 -p 80:80 df/variante2
+
+Netzwerk erstellen:
+docker network create mynetwork
+
+alle container, welche in diesem Netzwerk sind können miteinander kommunizieren. 
+
+mit dem folgenden befehl kann man alle netzwerke löschen, welche nicht gebracuht werden. 
+docker network prune
+
+
+
 
 
 ## Quellen
