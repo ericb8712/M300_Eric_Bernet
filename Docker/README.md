@@ -124,7 +124,7 @@ $ docker container run -d --name eric-web2 -p 8080:8080 ericbernet/webapp_two:2.
 image auf docker hub pushen
 $ docker image push ericbernet/webapp_two:2.0
 
-<img src="bild1">
+<img src="/Docker/bild1.png">
 
 
 
