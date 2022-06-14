@@ -76,6 +76,58 @@ docker network prune
 
 
 
+Docker image Docker HUB
+
+Wichtig: Man braucht ein Docker hub account
+
+Gitlab von Herr Calisto copieren:
+
+"TEMP_Docker" erstellen:
+$ mkdir TEMP_Docker Unterverzeichnis 
+
+Ins Unterverzeichnis "TEMP_Docker" wechseln
+$ cd TEMP_Docker 
+
+Repo klonen
+$ git clone https://gitlab.com/ser-cal/Container-CAL-webapp_v1.git 
+
+ins Repo-Unterverzeichnis wechseln
+$ cd Container-CAL-webapp-v1/ 
+
+Ins Unte
+$ cd APP 
+
+das File views/home.pug ist da um die Homepage zu bearbeiten
+
+nach dem ein Image erstellen, name durch namen ersetzten.
+$ docker image build -t <name>/webapp_one:1.0 .
+
+jetzt sich mit seinem dockker Account einlogen:
+$ docker login --username=<name>
+
+Danach das image auf docker hub pushen:
+$ docker image push <name>do/webapp_one:1.0
+
+Jetzt nur noch die den Container starten:
+$ docker container run -d --name eric-web -p 8080:8080 ericbernet/webapp_one:1.0
+
+container stopen
+$ docker container stop 8c6
+
+container löschen
+$ docker container rm 8c6
+
+
+2 container erstellen 
+$ docker container run -d --name eric-web2 -p 8080:8080 ericbernet/webapp_two:2.0
+
+image auf docker hub pushen
+$ docker image push ericbernet/webapp_two:2.0
+
+<img src="bild1">
+
+
+
 
 ## Quellen
 https://tbzedu.sharepoint.com/sites/campus/students/it/Forms/AllItems.aspx?id=%2Fsites%2Fcampus%2Fstudents%2Fit%2F%5Fread%2Donly%2FM300%2F2%2D%20Unterlagen%2FDocker%5Fcheat%2Dsheet%2Dv2%2Epdf&parent=%2Fsites%2Fcampus%2Fstudents%2Fit%2F%5Fread%2Donly%2FM300%2F2%2D%20Unterlagen&p=true&ga=1
