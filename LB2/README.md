@@ -7,17 +7,16 @@ Einleitung zum LB1 Projekt (Erklärungen)
 
 
 (für dieses Projekt muss man Nginx und docker installieren)
-
 <br>
 auf dem server file erstellen mit diesem namen:
 docker-compose.yaml
-
+<br>
 das file sollte diesen inhalt haben: Quelle:
 [Text](https://hub.docker.com/_/nextcloud)
-
+<br>
 Dazu sollte man dem Webserver noch eine statische IP Adresse geben, sodass sie immer die gleiche hat. 
 Dazu sollte man die vorlage mit den beiden code schnipsel networks, anpassen.
-
+<br>
 ###############
 version: '2'
 
@@ -63,16 +62,16 @@ services:
       mynetwork:
         ipv4_address: 172.20.0.6
 ###############
-
+<br>
 nach dem man das dockercompose file erstellt und gespeichert hat muss man den befehl unten aufgeführt ausführen und das ganze zu starten:
-
+<br>
 docker-compose up -d
-
+<br>
 
 
 
 im ngnix im file /etc/nginx/sites-enabled/default das default file anpassen mit:
-
+<br>
 
 server {
         listen 80;
@@ -96,14 +95,14 @@ server {
 
 
 
-
+<br>
 
 zum schluss noch im unten aufgeführten file einen eintrag anpassen
-
+<br>
 %windir%\system32\drivers\etc\hosts
-
+<br>
 anpassen mit: sharoneric.com
-
+<br>
 
 ## Umsetzung
 Text
