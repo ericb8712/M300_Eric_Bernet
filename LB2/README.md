@@ -8,6 +8,7 @@ Einleitung zum LB1 Projekt (Erklärungen)
 
 (für dieses Projekt muss man Nginx und docker installieren)
 
+<br>
 auf dem server file erstellen mit diesem namen:
 docker-compose.yaml
 
