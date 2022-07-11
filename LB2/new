@@ -1,19 +1,12 @@
-# Einleitung
-Einleitung zum LB1 Projekt (Erklärungen)
 
-# Inhaltsverszeichnis
-
-## Service-Aufbau 
-
-auf dem server file erstellen mit diesem namen:
-docker-compose.yaml
-
-das file sollte diesen inhalt haben: Quelle:
-[Text](https://hub.docker.com/_/nextcloud)
-
-###############
 version: '2'
 
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+  
 volumes:
   nextcloud:
   db:
@@ -26,8 +19,8 @@ services:
     volumes:
       - db:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MYSQL_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=eric123
+      - MYSQL_PASSWORD=eric123
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
 
@@ -39,22 +32,25 @@ services:
     volumes:
       - nextcloud:/var/www/html
     environment:
-      - MYSQL_PASSWORD=
+      - MYSQL_PASSWORD=eric123
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=db
-###############
+    ports:
+      - "80"
+    networks:
+      default:
+      mynetwork:
+        ipv4_address: 172.20.0.6
 
 
 
 
 
-## Umsetzung
-Text
-
-## Testing
-Text
-
-## Quellen
-[Text](https://hub.docker.com/_/nextcloud)
-
+server {
+  listen 81;
+  listen [::]:81;
+  server_name my.virtualhost.com;
+  root /var/www/VirtualHost;
+  index index.html;
+}
