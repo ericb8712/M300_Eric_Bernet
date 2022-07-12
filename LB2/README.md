@@ -18,6 +18,7 @@ Dazu sollte man dem Webserver noch eine statische IP Adresse geben, sodass sie i
 Dazu sollte man die vorlage mit den beiden code schnipsel networks, anpassen.
 <br>
 ###############
+```
 version: '2'
 
 networks:
@@ -61,6 +62,7 @@ services:
       default:
       mynetwork:
         ipv4_address: 172.20.0.6
+```
 ###############
 <br>
 nach dem man das dockercompose file erstellt und gespeichert hat muss man den befehl unten aufgeführt ausführen und das ganze zu starten:
@@ -73,6 +75,7 @@ docker-compose up -d
 im ngnix im file /etc/nginx/sites-enabled/default das default file anpassen mit:
 <br>
 
+```
 server {
         listen 80;
         listen [::]:80;
@@ -91,7 +94,7 @@ server {
 
         }
 }
-
+```
 
 
 
