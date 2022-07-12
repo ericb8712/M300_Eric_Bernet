@@ -17,8 +17,7 @@ das file sollte diesen inhalt haben: Quelle:
 Dazu sollte man dem Webserver noch eine statische IP Adresse geben, sodass sie immer die gleiche hat. 
 Dazu sollte man die vorlage mit den beiden code schnipsel networks, anpassen.
 <br>
-###############
-```
+```yaml
 version: '2'
 
 networks:
@@ -63,7 +62,6 @@ services:
       mynetwork:
         ipv4_address: 172.20.0.6
 ```
-###############
 <br>
 nach dem man das dockercompose file erstellt und gespeichert hat muss man den befehl unten aufgeführt ausführen und das ganze zu starten:
 <br>
@@ -75,7 +73,7 @@ docker-compose up -d
 im ngnix im file /etc/nginx/sites-enabled/default das default file anpassen mit:
 <br>
 
-```
+```yaml
 server {
         listen 80;
         listen [::]:80;
